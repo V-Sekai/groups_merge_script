@@ -1,0 +1,1 @@
+wsl-ssh-pageant-gui.exe -systray -winssh ssh-pageant
