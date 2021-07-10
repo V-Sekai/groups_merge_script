@@ -77,8 +77,9 @@ os.system(f"git checkout {ORIGINAL_BRANCH} --force")
 os.system(f"git branch -D {MERGE_BRANCH}")
 os.system(f"python3 ./thirdparty/git-assembler -av --recreate")
 os.system(f"git checkout {MERGE_BRANCH} -f")
-from datetime import datetime
-MERGE_DATE=strftime("%Y-%m-%d %H_%M_%S")
+import datetime
+d = datetime.now()
+MERGE_DATE=str(d).replace('+00:00', 'Z')
 MERGE_TAG=f"groups-4.x.{MERGE_DATE}"
 os.system(f"git tag -a {MERGE_TAG} -m \"Commited at {MERGE_DATE}.\"")
 os.system(f"git push {MERGE_REMOTE} {MERGE_TAG}")
